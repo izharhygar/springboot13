@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,11 +32,10 @@ public class UserController {
 //	{
 //		return this.userRepo.findOne(Id);
 //	}
-//	@PutMapping
-//	public User putoneuser(@RequestBody User user)
-//	{
-//		this.service.addUser(user);
-//		return user;
-//	}
-//	
+	@PostMapping
+	public User putoneuser(@RequestBody User user)
+	{
+		this.userRepo.save(user);
+		return user;
+	}	
 }
