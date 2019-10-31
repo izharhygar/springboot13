@@ -32,10 +32,10 @@ public class UserController {
 //	{
 //		return this.userRepo.findOne(Id);
 //	}
-	@PostMapping
-	public User putoneuser(@RequestBody User user)
+	@PostMapping(produces = "application/json")
+	public List<User> putoneuser(@RequestBody User user)
 	{
 		this.userRepo.save(user);
-		return user;
+		return userRepo.findAll();
 	}	
 }
