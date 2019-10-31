@@ -37,5 +37,12 @@ public class UserController {
 	{
 		this.userRepo.save(user);
 		return userRepo.findAll();
-	}	
+	}
+	
+	@PutMapping(value="/{id}",produces = "application/json")
+	public String updateuser(@PathVariable("id") String Id, @RequestBody User user) {
+		userRepo.save(user);
+		return "user updated";
+	}
+
 }
