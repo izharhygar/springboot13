@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.UniqueElements;
+
 @Entity
 @Table(name = "users")
 
@@ -21,9 +23,9 @@ public class User implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name ="user_id")
 	private Long user_id;
-	@Column(name="username")
+	@Column(name="username", unique= true)
 	private String username;
-	@Column(name="email")
+	@Column(name="email", unique= true)
 	private String email;
 
 	
